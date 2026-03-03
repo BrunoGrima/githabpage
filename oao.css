@@ -1,0 +1,684 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* BASE */
+/* ============================= */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #0a1f3a;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* HERO PREMIUM */
+/* ============================= */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  color: #fff;
+  background-image: url("fondo.jpg");
+
+  background-size: cover;
+  background-position: 100% center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-left,
+.btn{
+  text-align: center;
+}
+
+.hero-left {
+  max-width: 520px;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.hero-left h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+}
+
+.hero-left h2 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.hero-left p {
+  margin: 25px 0;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.hero-right {
+  position: relative;
+  z-index: 10;
+  transform: translateX(-150px);
+  max-width: 100%;
+
+}
+
+/* ============================= */
+/* BOTONES GENERALES */
+/* ============================= */
+
+.btn {
+  display: inline-flex;
+  min-width: 100px;
+  padding: 10px 20px;
+  background: #f2f2f2;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: 0.3s;
+  align-items: center;        /* centra vertical */
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 200;
+  touch-action: manipulation;
+  margin: 50px 0 0 0;
+}
+
+.btn:hover {
+  transform: scale(1.15);
+}
+
+.btn.dark {
+  background: #3b3b3b;
+  color: #fff;
+}
+
+.btn.dark:hover {
+  color: #3B3B3B;
+  background: #fff;
+}
+
+/* ============================= */
+/* SECCIONES */
+/* ============================= */
+
+.section {
+  padding: 80px 10%;
+}
+
+.section.gray {
+  background: #f2f2f2;
+}
+
+.section h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* ============================= */
+/* SERVICIOS */
+/* ============================= */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+    position: relative;
+  overflow: hidden;
+  min-height: 260px;
+
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+.card h4,
+.card p {
+  position: relative;
+  z-index: 2;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition: all 0.4s ease;
+}
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover h4,
+.card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*aca van los linck de las imagenes de fondo*/
+.service-1 {
+  background-image: url("service3.webp");
+}
+
+.service-2 {
+  background-image: url("service1.avif");
+}
+
+.service-3 {
+  background-image: url("service2.jpg");
+}
+
+/* ============================= */
+/* PORTFOLIO */
+/* ============================= */
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.work {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 180px;
+  background: #ddd;
+
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+
+  border-radius: 10px;
+  cursor: pointer;
+
+  position: relative;
+  z-index: 1;
+
+  transition: transform 0.3s ease, background 0.5s ease;
+  pointer-events: auto;
+}
+
+.work:hover {
+  background: #ccc;
+  transform: translateY(-4px);
+}
+
+
+/* ============================= */
+/* PERFIL CIRCULAR */
+/* ============================= */
+
+.profile-wrapper {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  transform: scale(2);              /* ← ACÁ */
+  transform-origin: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.profile-image {
+  width: 220px;       /* ← Agranda la imagen */
+  height: 220px;      /* ← Agranda la imagen */
+  border-radius: 0%;
+  overflow: hidden;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  flex-shrink: 0;
+ 
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  pointer-events: none;  
+}
+
+.profile-actions {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.buttons-row {
+    display: flex;
+    position: absolute;
+    right: -80px;           /* qué tan lejos de la imagen */
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    gap: 14px;
+    margin-left: 25px;
+}
+/* ============================= */
+/* BOTONES cuadrados */
+/* ============================= */
+
+.circle-btn {
+  padding: 10px 35px;
+  background: rgba(255,255,255,0.0);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px; /* rectangulares */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, background 0.3s ease;
+  white-space: nowrap;
+  gap: 8px;
+
+}
+.circle-btn img {
+  width: 18px;              /* pequeño y prolijo */
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* icono blanco */
+  transition: 0.3s ease;
+}
+.circle-btn:hover {
+  background: transparent;
+  color: #fff;
+  transform: translateX(-40px);
+}
+.circle-btn:hover img {
+  transform: translateY(-3px);
+}
+
+.contact-btn {
+  display: flex;              /* clave para mobile */
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 260px;
+  padding: 14px 20px;
+
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  text-decoration: none;
+
+  border-radius: 999px;
+  font-size: 1rem;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.contact-btn:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+
+
+/* POSICIONES TIPO RELOJ */
+
+.pos-1 {
+  top: 5%;
+  right: 30%;
+}
+
+.pos-2 {
+  top: 20%;
+  right: 10%;
+}
+
+.pos-3 {
+  bottom: 39%;
+  right: 4%;
+}
+
+.pos-4 {
+  bottom: 20%;
+  right: 15%;
+}
+
+
+
+#contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+#contacto p {
+  margin-bottom: 30px;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 40px;
+
+}
+
+.logo-title img {
+  height: 80px; /* ajustá según tu diseño */
+  width: auto;
+}
+
+.logo-title span {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+}
+
+.mail-section {
+  padding: 80px 10%;
+  background: #3B3B3B;
+  color: #fff;
+}
+
+.mail-container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.mail-container h2 {
+  font-size: 2.1rem;
+  margin-bottom: 10px;
+}
+
+.mail-container p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.mail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mail-form input,
+.mail-form textarea {
+  background: #1c1c1c;
+  border: 1px solid #333;
+  padding: 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.mail-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.mail-form input:focus,
+.mail-form textarea:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.mail-form button {
+  margin-top: 10px;
+  padding: 14px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mail-form button:hover {
+  background: #ddd;
+}
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer {
+  background: #000;
+  color: #aaa;
+  text-align: left;
+  padding: 10px 0;
+  font-size: 0.8rem;
+}
+
+
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translatex(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+   
+
+.hero {
+    flex-direction: column;
+    justify-content: center;
+    padding: 80% 5%;
+    height: 700px;
+    min-height: 100px;
+  }
+
+  .pos-1 { top: 20%; right: 5%; }
+  .pos-2 { top: 35%; right: -5%; }
+  .pos-3 { bottom: 33%; right: -2%; }
+  .pos-4 { bottom: 15%; right: 7%; }
+  
+  .hero-right {
+    transform: none;
+    margin-top: 90px;
+  }
+
+  .hero-right img {
+  width: 100%;
+  height: auto;
+
+}
+
+  .hero-left {
+    margin-top: 50%;
+    position: relative;
+    z-index: 300;            /* 👈 botón por encima de todo */
+  }
+
+.hero-left h1 {
+  white-space: nowrap;
+}
+
+  .hero-left,
+  .btn {
+    transform: scale(0.9);
+
+  }
+
+
+  .hero-left h1 {
+  font-size: clamp(2rem, 2.4vw, 2.6rem);
+  line-height: 1.15;
+}
+  .logo-title {
+  transform: scale(0.9);
+}
+  .hero-left h2 {
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+.profile-wrapper {
+    width: 100%;
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;       /* referencia para los botones */
+    padding-left: 20px;         /* margen desde la izquierda */
+  }
+
+  .profile-image {
+    width: 240px;
+    height: 240px;
+    overflow: visible;
+    position: relative;
+    top: -100px;
+    left: auto;
+    transform: none;
+  }
+
+  .profile-image img {
+    width: 150%;
+    height: 150%;
+    object-fit: contain;
+    right: -20%;
+    top: -18%;
+  }
+
+.buttons-row {
+    position: relative;        /* */
+    width: fit-content;  
+    padding: 25px; 
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;       /* horizontal en mobile */
+    justify-content: flex-start; 
+    align-items: center;       /* centra vertical de los botones si hay diferentes alturas */
+    gap: 12px;                 
+    margin-left: 0px;         /* separación del borde izquierdo */
+    background: transparent;   
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: 0.5s;
+}
+
+
+
+  .circle-btn {
+    padding: 20px 15px;
+    font-size: 0.6rem;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .circle-btn:nth-child(1) { animation-delay: 0.5s; }
+  .circle-btn:nth-child(2) { animation-delay: 0.6s; }
+  .circle-btn:nth-child(3) { animation-delay: 0.7s; }
+  .circle-btn:nth-child(4) { animation-delay: 0.8s; }
+
+  .circle-btn span {
+    display: none;
+  }
+
+  .circle-btn img {
+    width: 40px;
+    height: 40px;
+  }
+ .circle-btn:active {
+    transform: scale(0.95);
+    background: rgba(255,255,255,0.25);
+  }
+
+
+  .btn {
+    min-width: 180px;
+    max-width: 180Px;
+    top: -50px;
+
+  }
+
+.mail-container h2{
+  font-size: 1.2rem;
+}
+
+ 
+  .contact-btn {
+    font-size: 0.9rem;
+    padding: 12px 18px;
+  }
+  .work {
+    min-height: 160px;
+  }
+
+
+  .card h4,
+  .card p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+    #contacto {
+    padding: 30px 5%;
+  }
+
+
+  .logo-title {
+    flex-direction: column;   /* ← los pone vertical */
+    align-items: center;      /* centra horizontalmente */
+    text-align: center;       /* centra el texto */
+    gap: 8px;                 /* espacio entre logo y nombre */
+  }
+ 
+    footer {
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+}
