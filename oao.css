@@ -24,7 +24,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 60px 10%;
   color: #fff;
   background-image: url("fondo.jpg");
 
@@ -35,6 +35,12 @@ body {
   overflow: hidden;
   z-index: 1;
 }
+/*
+.pos-1 { top: 20%; right: 5%; }
+.pos-2 { top: 35%; right: -5%; }
+.pos-3 { bottom: 33%; right: -2%; }
+.pos-4 { bottom: 15%; right: 7%; }
+*/
 
 .hero-left,
 .btn{
@@ -63,6 +69,7 @@ body {
   margin: 25px 0;
   font-size: 1.05rem;
   color: #fff;
+  text-align: justify;
 }
 
 .hero-right {
@@ -93,11 +100,12 @@ body {
   position: relative;
   z-index: 200;
   touch-action: manipulation;
-  margin: 50px 0 0 0;
+  margin: 80px 120px 0 -10px;
 }
 
 .btn:hover {
   transform: scale(1.15);
+  background-color: #25d366;
 }
 
 .btn.dark {
@@ -107,7 +115,7 @@ body {
 
 .btn.dark:hover {
   color: #3B3B3B;
-  background: #fff;
+  background: #25d366;
 }
 
 /* ============================= */
@@ -239,40 +247,26 @@ body {
 
 
 /* ============================= */
-/* PERFIL CIRCULAR */
+/* BOTONES LATERALES */
 /* ============================= */
 
 .profile-wrapper {
-  position: relative;
-  width: 230px;
-  height: 230px;
-  transform: scale(2);              /* ← ACÁ */
-  transform-origin: center;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  
+  gap: 40px;
 }
 
 .profile-image {
   width: 220px;       /* ← Agranda la imagen */
   height: 220px;      /* ← Agranda la imagen */
-  border-radius: 0%;
-  overflow: hidden;
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  flex-shrink: 0;
- 
+  
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  position: absolute;
-  pointer-events: none;  
+ margin-top: -80px;
+  
 }
 
 .profile-actions {
@@ -281,18 +275,21 @@ body {
   right: 0px;
   transform: translateY(-50%);
   z-index: 20;
+  display: flex;
 }
 
 .buttons-row {
-    display: flex;
-    position: absolute;
-    right: -80px;           /* qué tan lejos de la imagen */
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-    gap: 14px;
-    margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transform: translate(-100%, -60%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 15px; /* espacio entre botones */
+  max-width: 400px; /* opcional */
+
 }
+
 /* ============================= */
 /* BOTONES cuadrados */
 /* ============================= */
@@ -517,62 +514,28 @@ footer {
 .hero {
     flex-direction: column;
     justify-content: center;
-    padding: 80% 5%;
-    height: 700px;
-    min-height: 100px;
+    padding: 100px 5%;
+    height: 120vh;
   }
 
-  .pos-1 { top: 20%; right: 5%; }
-  .pos-2 { top: 35%; right: -5%; }
-  .pos-3 { bottom: 33%; right: -2%; }
-  .pos-4 { bottom: 15%; right: 7%; }
-  
   .hero-right {
     transform: none;
-    margin-top: 90px;
+    margin-top: 20px;
   }
 
-  .hero-right img {
-  width: 100%;
-  height: auto;
-
-}
 
   .hero-left {
-    margin-top: 50%;
+    margin-top: 30%;
     position: relative;
     z-index: 300;            /* 👈 botón por encima de todo */
   }
 
-.hero-left h1 {
-  white-space: nowrap;
-}
 
-  .hero-left,
-  .btn {
-    transform: scale(0.9);
-
-  }
-
-
-  .hero-left h1 {
-  font-size: clamp(2rem, 2.4vw, 2.6rem);
-  line-height: 1.15;
-}
-  .logo-title {
-  transform: scale(0.9);
-}
-  .hero-left h2 {
-  font-size: clamp(1rem, 3vw, 2rem);
-}
-.profile-wrapper {
+ 
+  .profile-wrapper {
     width: 100%;
     transform: scale(1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;       /* referencia para los botones */
-    padding-left: 20px;         /* margen desde la izquierda */
+    padding-left: 40px;         /* margen desde la izquierda */
   }
 
   .profile-image {
@@ -593,22 +556,10 @@ footer {
     top: -18%;
   }
 
-.buttons-row {
-    position: relative;        /* */
-    width: fit-content;  
-    padding: 25px; 
-    margin-top: 40px;
-    display: flex;
-    flex-direction: row;       /* horizontal en mobile */
-    justify-content: flex-start; 
-    align-items: center;       /* centra vertical de los botones si hay diferentes alturas */
-    gap: 12px;                 
-    margin-left: 0px;         /* separación del borde izquierdo */
-    background: transparent;   
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards;
-    animation-delay: 0.5s;
-}
+ .buttons-row {
+    flex-direction: row;
+    margin-top: 30px;
+  }
 
 
 
@@ -646,9 +597,9 @@ footer {
 
   }
 
-.mail-container h2{
+  .mail-container h2{
   font-size: 1.2rem;
-}
+  }
 
  
   .contact-btn {
@@ -681,4 +632,5 @@ footer {
     font-size: 0.8rem;
     padding: 8px 0;
   }
+
 }
